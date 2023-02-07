@@ -1,0 +1,335 @@
+﻿<Application x:Class="Retailer_App.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Retailer_App"
+             Startup="Application_Startup">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="Save">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/Save Hitam.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/Save Putih.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="Insert">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/Insert Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/Insert White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="Login">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/Login Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/Login White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="Update">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/Update Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/Update White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="Delete">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/Delete Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/Delete White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="Edit">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/Edit Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/Edit White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="New">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/New Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/New White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="Close">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/Close Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/Close White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="Reset">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/Reset Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/Reset White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="Menu">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/Menu Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/Menu White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="Show">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/Show Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/Show White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="In">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/In Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/In White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Button" x:Key="Out">
+                <Setter Property="Background">
+                    <Setter.Value>
+                        <ImageBrush ImageSource="/Asset/Out Black.png"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Left" Margin="0,0,0,0"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsPressed" Value="true">
+                        <Setter Property="Content">
+                            <Setter.Value>
+                                <Image Source="/Asset/Out White.png" Stretch="Fill"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

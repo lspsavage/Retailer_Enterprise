@@ -1,0 +1,185 @@
+﻿<UserControl x:Class="Retailer_App.Views.Inventories.StockDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Retailer_App.Views.Inventories"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Label" x:Key="Title_Label">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="MADE TOMMY"/>
+        </Style>
+        <Style TargetType="Label" x:Key="Isi_Label">
+            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="MADE TOMMY"/>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="94*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70*"/>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="25*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="45*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="12*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="12*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Label Content="Stock" Style="{StaticResource Title_Label}"/>
+                </Grid>
+                <Grid Grid.Row="5"> <!--Product-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70*"/>
+                            <RowDefinition Height="30*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Label Content="Product" Style="{StaticResource Isi_Label}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <ListBox x:Name="ListBox"  ItemsSource="{Binding Logcol}" SelectedItem="{Binding Model}" SelectionChanged="ListBox_SelectionChanged">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Products.Name}"/>
+                                        <TextBlock Text="{Binding Uid}" Visibility="Collapsed"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="7"> <!--Stock-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label Content="Stock" Style="{StaticResource Isi_Label}"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="Stock" TextChanged="Stock_TextChanged"></TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="9"> <!--ExpDate-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label Content="Exp Date" Style="{StaticResource Isi_Label}"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="ExpDate" TextChanged="ExpDate_TextChanged"></TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="11"> <!--Deskripsi-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70*"/>
+                            <RowDefinition Height="30*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Label Content="Deskripsi" Style="{StaticResource Isi_Label}"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="Desc" TextChanged="Desc_TextChanged"></TextBox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <DataGrid x:Name="TblData" Grid.Row="1" Background="Pink"  Margin="9,9,9,9"
+                  HeadersVisibility="Column" EnableRowVirtualization="False"
+                  CanUserAddRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False"
+                  AlternatingRowBackground="LightPink"  SelectedCellsChanged="TblData_SelectedCellsChanged" 
+                  ItemsSource="{Binding Logcol}" SelectedItem="{Binding Model}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="CODE" Binding="{Binding Uid}" Width="auto"/>
+                            <DataGridTextColumn Header="NAME" Binding="{Binding Products.Name}" Width="*"/>
+                            <DataGridTextColumn Header="STOK" Binding="{Binding Qty}" Width="auto"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*"/>
+                    <RowDefinition Height="80*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="BtnInsert" Style="{StaticResource Insert}" Command="{Binding InsertCommand}" Click="BtnInsert_Click" Grid.Row="4" Margin="15,0,15,0"/>
+                    <Button x:Name="BtnUpdate" Style="{StaticResource Update}" Click="BtnUpdate_Click" Grid.Row="2" Margin="15,0,15,0"/>
+                    <Button x:Name="BtnIn" Click="BtnIn_Click" Style="{StaticResource In}" Grid.Row="2" Margin="15,0,15,0"/>
+                    <Button x:Name="BtnOut" Click="BtnOut_Click" Style="{StaticResource Out}"  Grid.Row="0" Margin="15,0,15,0"/>
+                    <Button x:Name="BtnMenu" Style="{StaticResource Menu}" Click="BtnMenu_Click"  Grid.Row="6" Margin="15,0,15,0"/>
+                    <Button x:Name="BtnReset" Style="{StaticResource Reset}" Click="BtnReset_Click"  Grid.Row="4" Margin="15,0,15,0"/>
+                    <Button x:Name="BtnClose" Style="{StaticResource Close}" Click="BtnClose_Click"  Grid.Row="8" Margin="15,-10,15,10"/>
+                </Grid>
+            </Grid>
+           
+        </Grid>
+    </Grid>
+</UserControl>
